@@ -31,11 +31,11 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtClasse = New System.Windows.Forms.TextBox()
         Me.txtPersonagem = New System.Windows.Forms.TextBox()
         Me.txtJogador = New System.Windows.Forms.TextBox()
         Me.txtIDJogador = New System.Windows.Forms.TextBox()
         Me.btnDeletar = New System.Windows.Forms.Button()
+        Me.txtClasse = New System.Windows.Forms.ComboBox()
         CType(Me.dGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -50,9 +50,17 @@ Partial Class Form1
         '
         'dGrid
         '
+        Me.dGrid.AllowUserToAddRows = False
+        Me.dGrid.AllowUserToDeleteRows = False
+        Me.dGrid.AllowUserToResizeColumns = False
+        Me.dGrid.AllowUserToResizeRows = False
+        Me.dGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.dGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.dGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dGrid.Location = New System.Drawing.Point(12, 244)
         Me.dGrid.Name = "dGrid"
+        Me.dGrid.ReadOnly = True
         Me.dGrid.Size = New System.Drawing.Size(776, 194)
         Me.dGrid.TabIndex = 2
         '
@@ -123,13 +131,6 @@ Partial Class Form1
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Classe"
         '
-        'txtClasse
-        '
-        Me.txtClasse.Location = New System.Drawing.Point(94, 107)
-        Me.txtClasse.Name = "txtClasse"
-        Me.txtClasse.Size = New System.Drawing.Size(138, 20)
-        Me.txtClasse.TabIndex = 10
-        '
         'txtPersonagem
         '
         Me.txtPersonagem.Location = New System.Drawing.Point(94, 81)
@@ -160,16 +161,26 @@ Partial Class Form1
         Me.btnDeletar.Text = "Deletar"
         Me.btnDeletar.UseVisualStyleBackColor = True
         '
+        'txtClasse
+        '
+        Me.txtClasse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.txtClasse.FormattingEnabled = True
+        Me.txtClasse.Items.AddRange(New Object() {"Guerreiro", "Ladino", "Mago"})
+        Me.txtClasse.Location = New System.Drawing.Point(94, 107)
+        Me.txtClasse.Name = "txtClasse"
+        Me.txtClasse.Size = New System.Drawing.Size(138, 21)
+        Me.txtClasse.TabIndex = 15
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.txtClasse)
         Me.Controls.Add(Me.btnDeletar)
         Me.Controls.Add(Me.txtIDJogador)
         Me.Controls.Add(Me.txtJogador)
         Me.Controls.Add(Me.txtPersonagem)
-        Me.Controls.Add(Me.txtClasse)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
@@ -196,9 +207,9 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents txtClasse As TextBox
     Friend WithEvents txtPersonagem As TextBox
     Friend WithEvents txtJogador As TextBox
     Friend WithEvents txtIDJogador As TextBox
     Friend WithEvents btnDeletar As Button
+    Friend WithEvents txtClasse As ComboBox
 End Class

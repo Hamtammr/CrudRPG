@@ -72,7 +72,7 @@ Public Class Form1
 
             da.Fill(dt)
 
-            dGrid.Datasource = dt
+            dGrid.DataSource = dt
 
 
         Catch ex As Exception
