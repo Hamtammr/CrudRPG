@@ -11,12 +11,13 @@ Public Class Form1
         Try
 
             conexao = New MySqlConnection("Server=localhost;Database=crudrpg;Uid=root;Pwd=meuteste;")
-            strSQL = "INSERT INTO players (Jogador,Personagem,Classe) VALUES (@Jogador, @Personagem, @Classe)"
+            strSQL = "INSERT INTO players (Jogador,Personagem,Classe,Lvl) VALUES (@Jogador, @Personagem, @Classe, @Lvl)"
 
             comando = New MySqlCommand(strSQL, conexao)
             comando.Parameters.AddWithValue("@Jogador", txtJogador.Text)
             comando.Parameters.AddWithValue("@Personagem", txtPersonagem.Text)
             comando.Parameters.AddWithValue("@Classe", txtClasse.Text)
+            comando.Parameters.AddWithValue("@Lvl", txtLvl.Text)
 
             conexao.Open()
             comando.ExecuteNonQuery()
@@ -37,13 +38,14 @@ Public Class Form1
         Try
 
             conexao = New MySqlConnection("Server=localhost;Database=crudrpg;Uid=root;Pwd=meuteste;")
-            strSQL = "UPDATE players SET Jogador=@Jogador, Personagem=@Personagem, Classe=@Classe WHERE IDJogador=@IDJogador"
+            strSQL = "UPDATE players SET Jogador=@Jogador, Personagem=@Personagem, Classe=@Classe, Lvl=@Lvl WHERE IDJogador=@IDJogador"
 
             comando = New MySqlCommand(strSQL, conexao)
             comando.Parameters.AddWithValue("@IDJogador", txtIDJogador.Text)
             comando.Parameters.AddWithValue("@Jogador", txtJogador.Text)
             comando.Parameters.AddWithValue("@Personagem", txtPersonagem.Text)
             comando.Parameters.AddWithValue("@Classe", txtClasse.Text)
+            comando.Parameters.AddWithValue("@Lvl", txtLvl.Text)
 
             conexao.Open()
             comando.ExecuteNonQuery()
@@ -119,6 +121,7 @@ Public Class Form1
             comando.Parameters.AddWithValue("@Jogador", txtJogador.Text)
             comando.Parameters.AddWithValue("@Personagem", txtPersonagem.Text)
             comando.Parameters.AddWithValue("@Classe", txtClasse.Text)
+            comando.Parameters.AddWithValue("@Lvl", txtLvl.Text)
 
             conexao.Open()
             dr = comando.ExecuteReader()
@@ -127,7 +130,7 @@ Public Class Form1
                 txtJogador.Text = dr("Jogador")
                 txtPersonagem.Text = dr("Personagem")
                 txtClasse.Text = dr("Classe")
-
+                txtLvl.Text = dr("Lvl")
             Loop
 
         Catch ex As Exception
